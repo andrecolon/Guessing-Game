@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/ask_question"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Guess a number only" />
+
     <EditText
         android:id="@+id/edit_demo"
         android:layout_width="match_parent"
@@ -19,5 +25,20 @@
         android:text="Submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text_result"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/note_issues"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Non numerical characters crash the app. must fix"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorPrimaryDark"/>
 
 </LinearLayout>
