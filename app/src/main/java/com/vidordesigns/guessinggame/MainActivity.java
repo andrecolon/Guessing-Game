@@ -4,6 +4,7 @@ import android.renderscript.Sampler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,17 @@ public class MainActivity extends AppCompatActivity {
 
         editDemo = findViewById(R.id.edit_demo);
         buttonDemo = findViewById(R.id.button_demo);
+        buttonDemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                String content = String.valueOf(editDemo.getText());
+                Log.i("Demo",content);
+                //int nuym = content * 6;
+                int value = Integer.parseInt(content);
+                //nuym = alue *2;
 
+
+             }
+        });
     }
 }
