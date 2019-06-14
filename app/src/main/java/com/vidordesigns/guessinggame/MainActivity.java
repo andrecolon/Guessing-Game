@@ -1,16 +1,12 @@
 package com.vidordesigns.guessinggame;
 
-import android.renderscript.Sampler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import static android.view.View.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         static final int CORRECT = 0;
         static final int OVER = 1;
         static final int UNDER = 2;
-        static final int RESET = 3;
+        //static final int RESET = 3;
 
 // Variables - not sure if that is what java is calling them
         EditText editDemo;
@@ -44,18 +40,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view){
 
-                // get the numerical guess parse number and pass it through guess variable
+//                // get the numerical guess parse number and pass it through guess variable
                 guess = Integer.parseInt(askQuestion.getText().toString());
-                // Go through argument for chckGss in the integer that was passed in
+//                // Go through argument for check Guess in the integer that was passed in
                 int result = checkGuess(guess);
-
+//
                 updateUI(result);
 
              }
         });
-}
+    }
     int checkGuess(int guess) {
-        //check to see if the number is correct and return the result as an integer value
 
         if (guess == PERFECT) {
             return CORRECT;
@@ -66,24 +61,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-        public static void updateUI(int results) {
-
-
-            switch (results) {
-                case CORRECT:
-                    results.setText("The number is " + CORRECT);
-                    break;
-                case OVER:
-                    results.setText("Too high, think the meaning of life");
-                    break;
-                case UNDER:
-                    results.setText("Too low, think of my age when starting this venture");
-                    break;
-                default:
-                    results.setText("what's that numba again?");
-
-            }
+    void updateUI(int result) {
+        // this will perform all the tasks necessary to update the display once the result has been determined
+        // use a switch statement inside of this method to determine what to display to the user based on the provided result.
+        switch (result) {
+            case CORRECT:
+                textResult.setText("You got it! The number was: " + guess);
+                break;
+            case UNDER:
+                textResult.setText(guess + " is too low.");
+                break;
+            case OVER:
+                textResult.setText(guess +" is too high.");
+                break;
+            default:
+                textResult.setText("Okay, restart it yourself.");
         }
-
     }
 }
